@@ -76,11 +76,21 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Burger"
+          component={BurgerScreen}
+          options={{
+            title: "Burger",
+            headerStyle: {
+              backgroundColor: "#32CD32",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-function DetailsScreen() {
+function DetailsScreen({ navigation }) {
   return (
     <View>
       <View
@@ -208,6 +218,7 @@ function DetailsScreen() {
             shadowOpacity: 0.25,
             shadowRadius: 3.84,
           }}
+          onPress={() => navigation.navigate("Burger")}
         >
           <Image
             style={{ height: 120, width: 150, marginTop: 60, marginLeft: 20 }}
@@ -277,6 +288,40 @@ function DetailsScreen() {
           ></Image>
         </TouchableOpacity>
       </View>
+    </View>
+  );
+}
+
+function BurgerScreen({ navigation }) {
+  return (
+    <View style={{ backgroundColor: "#32CD32", flex: 1 }}>
+      <View
+        style={{
+          backgroundColor: "#fff",
+          flex: 1,
+          marginTop: 240,
+          borderTopLeftRadius: 56,
+          borderTopRightRadius: 56,
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            // backgroundColor: "red",
+            height: 300,
+            width: 300,
+            position: "absolute",
+            top: -150,
+          }}
+        >
+          <Image style={{height:"100%",width:"100%", resizeMode:'contain'}} source={require('./assets/burger.png')}></Image>
+          <Text style={{textAlign:'center',fontSize:30,fontWeight:'bold',fontFamily:'Arial Rounded MT Bold',bottom:20}}>Beast Burger</Text>
+          <Text style={{fontSize:20,fontWeight:'semibold',bottom:20}}>Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation dolor fugiat consectetur ad sint.</Text>
+
+        </View>
+        
+      </View>
+      
     </View>
   );
 }
