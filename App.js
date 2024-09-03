@@ -84,8 +84,32 @@ function App() {
             headerStyle: {
               backgroundColor: "#32CD32",
             },
-          }}
+          }
+        }
         />
+                    <Stack.Screen name="HotDog" component={HotDogScreen}
+                    options={{
+                      title:'HotDog',
+                      headerStyle:{
+                        backgroundColor:"tan"
+                      },
+                    }} />
+                     <Stack.Screen name="Meat" component={MeatScreen}
+                    options={{
+                      title:'Meat',
+                      headerStyle:{
+                        backgroundColor:"pink"
+                      },
+                    }} />
+                                         <Stack.Screen name="Fries" component={FriesScreen}
+                    options={{
+                      title:'Fries',
+                      headerStyle:{
+                        backgroundColor:"lavender"
+                      },
+                    }} />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -225,7 +249,8 @@ function DetailsScreen({ navigation }) {
             source={require("./assets/burger.png")}
           ></Image>
         </TouchableOpacity>
-        <TouchableOpacity
+        <TouchableOpacity    onPress={() => navigation.navigate("HotDog")}
+
           style={{
             width: 190,
             height: 250,
@@ -251,7 +276,7 @@ function DetailsScreen({ navigation }) {
           marginTop: 10,
         }}
       >
-        <TouchableOpacity
+        <TouchableOpacity onPress={() => navigation.navigate("Meat")}
           style={{
             width: 190,
             height: 250,
@@ -269,7 +294,9 @@ function DetailsScreen({ navigation }) {
             source={require("./assets/meat.png")}
           ></Image>
         </TouchableOpacity>
-        <TouchableOpacity
+        <TouchableOpacity onPress={() => navigation.navigate("Fries")}
+
+
           style={{
             width: 190,
             height: 250,
@@ -307,23 +334,473 @@ function BurgerScreen({ navigation }) {
       >
         <View
           style={{
-            // backgroundColor: "red",
             height: 300,
             width: 300,
             position: "absolute",
             top: -150,
           }}
         >
-          <Image style={{height:"100%",width:"100%", resizeMode:'contain'}} source={require('./assets/burger.png')}></Image>
-          <Text style={{textAlign:'center',fontSize:30,fontWeight:'bold',fontFamily:'Arial Rounded MT Bold',bottom:20}}>Beast Burger</Text>
-          <Text style={{fontSize:20,fontWeight:'semibold',bottom:20}}>Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation dolor fugiat consectetur ad sint.</Text>
-
+          <Image
+            style={{ height: "100%", width: "100%", resizeMode: "contain" }}
+            source={require("./assets/burger.png")}
+          ></Image>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 30,
+              fontWeight: "bold",
+              fontFamily: "Arial Rounded MT Bold",
+              bottom: 20,
+            }}
+          >
+            Beast Burger
+          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "semibold", bottom: 20 }}>
+            Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation
+            dolor fugiat consectetur ad sint.
+          </Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "pink",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/fire.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "lightblue",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/clock.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "beige",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/bowl.png")}
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              Ingredients
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Bread
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Lettuce, Tomato
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Cheese, Meat
+            </Text>
+          </View>
         </View>
-        
       </View>
-      
     </View>
   );
 }
+function HotDogScreen({ navigation }) {
+  return (
+    <View style={{ backgroundColor: "tan", flex: 1 }}>
+      <View
+        style={{
+          backgroundColor: "#fff",
+          flex: 1,
+          marginTop: 240,
+          borderTopLeftRadius: 56,
+          borderTopRightRadius: 56,
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            height: 300,
+            width: 300,
+            position: "absolute",
+            top: -150,
+          }}
+        >
+          <Image
+            style={{ height: "100%", width: "100%", resizeMode: "contain" }}
+            source={require("./assets/hotdog.png")}
+          ></Image>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 30,
+              fontWeight: "bold",
+              fontFamily: "Arial Rounded MT Bold",
+              bottom: 20,
+            }}
+          >
+            Hot Dog
+          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "semibold", bottom: 20 }}>
+            Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation
+            dolor fugiat consectetur ad sint.
+          </Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "pink",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/fire.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "lightblue",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/clock.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "beige",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/bowl.png")}
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              Ingredients
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Bread
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Sausage
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Ketchup, Mayonnaise
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+function MeatScreen({ navigation }) {
+  return (
+    <View style={{ backgroundColor: "pink", flex: 1 }}>
+      <View
+        style={{
+          backgroundColor: "#fff",
+          flex: 1,
+          marginTop: 240,
+          borderTopLeftRadius: 56,
+          borderTopRightRadius: 56,
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            height: 300,
+            width: 300,
+            position: "absolute",
+            top: -150,
+          }}
+        >
+          <Image
+            style={{ height: "100%", width: "100%", resizeMode: "contain" }}
+            source={require("./assets/meat.png")}
+          ></Image>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 30,
+              fontWeight: "bold",
+              fontFamily: "Arial Rounded MT Bold",
+              bottom: 20,
+            }}
+          >
+            Meat
+          </Text>
+          <Text style={{ fontSize: 20, fontWeight: "semibold", bottom: 20 }}>
+            Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation
+            dolor fugiat consectetur ad sint.
+          </Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "pink",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/fire.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "lightblue",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/clock.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "beige",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/bowl.png")}
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              Ingredients
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Chicken
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Sausage
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Ketchup, Mayonnaise
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+function FriesScreen({ navigation }) {
+  return (
+    <View style={{ backgroundColor: "lavender", flex: 1 }}>
+      <View
+        style={{
+          backgroundColor: "#fff",
+          flex: 1,
+          marginTop: 240,
+          borderTopLeftRadius: 56,
+          borderTopRightRadius: 56,
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            height: 300,
+            width: 300,
+            position: "absolute",
+            top: -150,
+          }}
+        >
+          <Image
+            style={{ height: "100%", width: "100%", resizeMode: "contain" }}
+            source={require("./assets/fries.png")}
+          ></Image>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 30,
+              fontWeight: "bold",
+              fontFamily: "Arial Rounded MT Bold",
+              bottom: 20,
+            }}
+          >
+            Fries
+                      </Text>
+          <Text style={{ fontSize: 20, fontWeight: "semibold", bottom: 20 }}>
+            Qui velit qui sint sunt fugiat aliquip proident aliqua exercitation
+            dolor fugiat consectetur ad sint.
+          </Text>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "pink",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/fire.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "lightblue",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/clock.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 90,
+                height: 100,
+                backgroundColor: "beige",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                style={{
+                  width: "50%",
+                  height: "50%",
+                  resizeMode: "contain",
+                  marginTop: 25,
+                  marginLeft: 21,
+                }}
+                source={require("./assets/bowl.png")}
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              Ingredients
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Yams
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Salt
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20, marginTop: 15 }}>
+              {"\u2022"}Cooking Oil
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
 
 export default App;
